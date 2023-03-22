@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -14,6 +18,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding{
+        enabled = true
     }
 
     buildTypes {
@@ -33,6 +41,9 @@ android {
 
 dependencies {
     def lottieVersion = "3.4.0"
+    def lifeCycleExtensionVersion = '1.1.1'
+    def navVersion = '2.5.3'
+    def preferencesVersion = '1.2.0'
 
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -42,6 +53,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+
+    implementation "androidx.preference:preference:$preferencesVersion"
 }

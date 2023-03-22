@@ -1,9 +1,11 @@
-package com.tolganacar.androidvotingsystem
+package com.tolganacar.androidvotingsystem.view.splashscreen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.tolganacar.androidvotingsystem.view.mainactivity.MainActivity
+import com.tolganacar.androidvotingsystem.R
 
 class SplashScreen : AppCompatActivity() {
 

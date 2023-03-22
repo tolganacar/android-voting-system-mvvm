@@ -14,10 +14,10 @@
         android:theme="@style/Theme.AndroidVotingSystem"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.mainactivity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".view.splashscreen.SplashScreen"
             android:label="Voting System"
             android:exported="true">
             <intent-filter>
