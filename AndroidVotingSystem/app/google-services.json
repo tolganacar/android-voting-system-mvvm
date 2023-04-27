@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "799810099177",
+    "project_id": "androidvotingsystem-a186c",
+    "storage_bucket": "androidvotingsystem-a186c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799810099177:android:6f90673ff3a656d62f5d78",
+        "android_client_info": {
+          "package_name": "com.tolganacar.androidvotingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799810099177-se2gjk4dma6opvihpqns75m7o1tnb8pc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tolganacar.androidvotingsystem",
+            "certificate_hash": "e36701b3b3be48c879a739e762a4209d30e8a14b"
+          }
+        },
+        {
+          "client_id": "799810099177-c0cgja554ffi6njg63el40hd7lnonkvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDziwZr33z7Sr-pB9JTzwwyV-IKuIWWLeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799810099177-c0cgja554ffi6njg63el40hd7lnonkvc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

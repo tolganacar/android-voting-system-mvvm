@@ -4,4 +4,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="tc_no">TC No</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="do_you_already_have_an_account">Do you already have an account?</string>
+    <string name="are_you_a_new_user">Are you a new user?</string>
+    <string name="click_here_to_vote_now">Click here to vote now</string>
+    <string name="vote_for_democracy">Vote for Democracy</string>
 </resources>
