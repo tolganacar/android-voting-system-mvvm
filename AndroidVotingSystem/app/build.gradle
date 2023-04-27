@@ -5,6 +5,7 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -65,4 +66,11 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
 
     implementation "androidx.preference:preference:$preferencesVersion"
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
+
+    implementation platform('com.google.firebase:firebase-bom:31.3.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }
