@@ -12,4 +12,5 @@
     <string name="are_you_a_new_user">Are you a new user?</string>
     <string name="click_here_to_vote_now">Click here to vote now</string>
     <string name="vote_for_democracy">Vote for Democracy</string>
+    <string name="email">Email</string>
 </resources>

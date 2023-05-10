@@ -9,31 +9,27 @@
         tools:context=".view.loginpage.LoginPageFragment">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputTcNoLogin"
+            android:id="@+id/textInputEmailLogin"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="326dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="116dp"
             android:layout_marginEnd="32dp"
-            android:hint="@string/tc_no"
+            android:hint="@string/email"
             app:boxStrokeColor="@color/purple_700"
-            app:counterEnabled="true"
-            app:counterMaxLength="11"
             app:endIconMode="clear_text"
             app:hintTextColor="@color/purple_700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/ic_id">
+            app:startIconDrawable="@drawable/ic_baseline_email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTcNoLogin"
+                android:id="@+id/editTextEmailLogin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="11" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -42,7 +38,7 @@
             android:layout_width="326dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/password"
             app:boxStrokeColor="@color/purple_700"
@@ -51,7 +47,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputTcNoLogin"
+            app:layout_constraintTop_toBottomOf="@+id/textInputEmailLogin"
             app:startIconDrawable="@drawable/ic_baseline_lock">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -102,8 +98,9 @@
         <ImageView
             android:id="@+id/imageViewLogin"
             android:layout_width="92dp"
+            android:layout_marginBottom="5dp"
             android:layout_height="92dp"
-            app:layout_constraintBottom_toTopOf="@+id/textInputTcNoLogin"
+            app:layout_constraintBottom_toTopOf="@+id/textInputEmailLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/login" />

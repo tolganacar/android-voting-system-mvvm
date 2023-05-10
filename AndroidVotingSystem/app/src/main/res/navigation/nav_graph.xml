@@ -19,6 +19,9 @@
             app:destination="@id/registerPageFragment"
             app:enterAnim="@anim/anim_slide_in_left"
             app:exitAnim="@anim/anim_slide_out_left"/>
+        <action
+            android:id="@+id/action_mainPageFragment_to_voteFragment"
+            app:destination="@id/voteFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginPageFragment"
@@ -50,5 +53,9 @@
         android:id="@+id/voteFragment"
         android:name="com.tolganacar.androidvotingsystem.view.verifypage.VoteFragment"
         android:label="fragment_vote"
-        tools:layout="@layout/fragment_vote" />
+        tools:layout="@layout/fragment_vote" >
+        <action
+            android:id="@+id/action_voteFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
 </navigation>
