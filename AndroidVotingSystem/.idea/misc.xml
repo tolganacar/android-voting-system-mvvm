@@ -4,14 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/drawable/green_rounded_button.xml" value="0.205" />
+        <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/drawable/ic_baseline_fingerprint_24.xml" value="0.1" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/drawable/person.xml" value="0.161" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/drawable/rounded_button.xml" value="0.205" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/drawable/roundedbutton.xml" value="0.205" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/fragment_face_id.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/fragment_login_page.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/fragment_main_page.xml" value="0.264" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/fragment_register_page.xml" value="0.264" />
-        <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/fragment_vote.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/fragment_vote.xml" value="0.2" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/layout/splash_screen.xml" value="0.10092592592592593" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/menu/options_menu.xml" value="0.1" />
         <entry key="..\:/Users/NACAR/Desktop/androidvotingsystem/AndroidVotingSystem/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />
