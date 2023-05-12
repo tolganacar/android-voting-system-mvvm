@@ -13,4 +13,6 @@
     <string name="click_here_to_vote_now">Click here to vote now</string>
     <string name="vote_for_democracy">Vote for Democracy</string>
     <string name="email">Email</string>
+    <string name="verify">Verify</string>
+    <string name="click_verify_button_for_fingerprint_verification">Click here for fingerprint verification</string>
 </resources>

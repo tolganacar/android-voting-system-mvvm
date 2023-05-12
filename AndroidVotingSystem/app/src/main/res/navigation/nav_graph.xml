@@ -51,11 +51,19 @@
     </fragment>
     <fragment
         android:id="@+id/voteFragment"
-        android:name="com.tolganacar.androidvotingsystem.view.verifypage.VoteFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.fingerprintauthpage.FingerprintAuthFragment"
         android:label="fragment_vote"
         tools:layout="@layout/fragment_vote" >
         <action
             android:id="@+id/action_voteFragment_to_mainPageFragment"
             app:destination="@id/mainPageFragment" />
+        <action
+            android:id="@+id/action_voteFragment_to_faceIdFragment"
+            app:destination="@id/faceIdFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/faceIdFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.faceidpage.FaceIdFragment"
+        android:label="fragment_face_id"
+        tools:layout="@layout/fragment_face_id" />
 </navigation>
