@@ -21,7 +21,7 @@
             app:exitAnim="@anim/anim_slide_out_left"/>
         <action
             android:id="@+id/action_mainPageFragment_to_voteFragment"
-            app:destination="@id/voteFragment" />
+            app:destination="@id/fingerprintauthFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginPageFragment"
@@ -35,7 +35,7 @@
             app:exitAnim="@anim/anim_slide_out_left"/>
         <action
             android:id="@+id/action_loginPageFragment_to_voteFragment"
-            app:destination="@id/voteFragment"
+            app:destination="@id/fingerprintauthFragment"
             app:enterAnim="@anim/anim_slide_in_left"
             app:exitAnim="@anim/anim_slide_out_left"/>
     </fragment>
@@ -50,20 +50,34 @@
             app:exitAnim="@anim/anim_slide_out_left"/>
     </fragment>
     <fragment
-        android:id="@+id/voteFragment"
+        android:id="@+id/fingerprintauthFragment"
         android:name="com.tolganacar.androidvotingsystem.view.fingerprintauthpage.FingerprintAuthFragment"
         android:label="fragment_vote"
-        tools:layout="@layout/fragment_vote" >
+        tools:layout="@layout/fragment_fingerprint_auth" >
         <action
             android:id="@+id/action_voteFragment_to_mainPageFragment"
-            app:destination="@id/mainPageFragment" />
+            app:destination="@id/mainPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
         <action
             android:id="@+id/action_voteFragment_to_faceIdFragment"
-            app:destination="@id/faceIdFragment" />
+            app:destination="@id/faceIdFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/faceIdFragment"
         android:name="com.tolganacar.androidvotingsystem.view.faceidpage.FaceIdFragment"
         android:label="fragment_face_id"
-        tools:layout="@layout/fragment_face_id" />
+        tools:layout="@layout/fragment_face_id" >
+        <action
+            android:id="@+id/action_faceIdFragment_to_voteFragment"
+            app:destination="@id/voteFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/voteFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.votepage.VoteFragment"
+        android:label="VoteFragment" />
 </navigation>

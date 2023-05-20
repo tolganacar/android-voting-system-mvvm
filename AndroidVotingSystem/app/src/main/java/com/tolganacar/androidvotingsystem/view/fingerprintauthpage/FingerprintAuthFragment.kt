@@ -13,13 +13,13 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.tolganacar.androidvotingsystem.databinding.FragmentFingerprintAuthBinding
 import com.tolganacar.androidvotingsystem.databinding.FragmentVoteBinding
-import com.tolganacar.androidvotingsystem.view.loginpage.LoginPageFragmentDirections
 import java.util.concurrent.Executor
 
 class FingerprintAuthFragment : Fragment() {
 
-    private lateinit var binding: FragmentVoteBinding
+    private lateinit var binding: FragmentFingerprintAuthBinding
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
@@ -28,13 +28,8 @@ class FingerprintAuthFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentVoteBinding.inflate(inflater, container, false)
+        binding = FragmentFingerprintAuthBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
