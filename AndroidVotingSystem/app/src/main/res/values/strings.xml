@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">AndroidVotingSystem</string>
+    <string name="app_name">Voting System</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="register">Register</string>
-    <string name="login">Login</string>
+    <string name="register">REGISTER</string>
+    <string name="login">LOGIN</string>
     <string name="tc_no">TC No</string>
     <string name="full_name">Full Name</string>
     <string name="password">Password</string>
@@ -15,4 +15,5 @@
     <string name="email">Email</string>
     <string name="verify">Verify</string>
     <string name="click_verify_button_for_fingerprint_verification">Click here for fingerprint verification</string>
+    <string name="detect_face">Detect Face</string>
 </resources>
