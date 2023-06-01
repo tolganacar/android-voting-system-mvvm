@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.annotation.SuppressLint
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -83,6 +84,7 @@ class FaceIdFragment : Fragment() {
                 .addOnSuccessListener { faces ->
                     for (face in faces) {
                         viewBinding.buttonDetectFaces.setOnClickListener {
+                            Toast.makeText(requireContext(),"Your face has been successfully verified.",Toast.LENGTH_LONG).show()
                             val action = FaceIdFragmentDirections.actionFaceIdFragmentToVoteFragment()
                             findNavController().navigate(action)
                         }

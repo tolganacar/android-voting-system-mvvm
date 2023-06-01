@@ -16,4 +16,12 @@
     <string name="verify">Verify</string>
     <string name="click_verify_button_for_fingerprint_verification">Click here for fingerprint verification</string>
     <string name="detect_face">Detect Face</string>
+    <string name="recep_tayyip_erdogan">Recep Tayyip Erdoğan</string>
+    <string name="choose">Choose</string>
+    <string name="kemal_kilidaroglu">Kemal Kılıçdaroğlu</string>
+    <string name="memleket_partisi">Memleket Partisi</string>
+    <string name="muharrem_ince">Muharrem İnce</string>
+    <string name="ata_ittifaki">ATA İttifakı</string>
+    <string name="cumhur_ittifaki">Cumhur İttifakı</string>
+    <string name="millet_ittifaki">Millet İttifakı</string>
 </resources>

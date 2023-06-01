@@ -9,20 +9,25 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.tolganacar.androidvotingsystem.R
+import com.tolganacar.androidvotingsystem.databinding.FragmentFaceIdBinding
+import com.tolganacar.androidvotingsystem.databinding.FragmentLoginPageBinding
 import kotlinx.android.synthetic.main.fragment_login_page.*
 import kotlinx.android.synthetic.main.fragment_register_page.*
 
 class LoginPageFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
-
+    private lateinit var viewBinding: FragmentLoginPageBinding
+    private val db = Firebase.firestore
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_login_page, container, false)
+        viewBinding = FragmentLoginPageBinding.inflate(inflater, container, false)
+        return viewBinding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,20 +43,29 @@ class LoginPageFragment : Fragment() {
     }
 
     private fun loginRegisterButtonOnClickListener() {
-
         buttonLoginLoginPage.setOnClickListener {
-            val email = editTextEmailLogin.text.toString()
-            val password = editTextPasswordLogin.text.toString()
+            val tcNo = viewBinding.editTextTcNoLogin.text.toString()
+            val password = viewBinding.editTextPasswordLogin.text.toString()
 
-            if(email.equals("") || password.equals("")) {
+            if(tcNo.equals("") || password.equals("")) {
                 Toast.makeText(this@LoginPageFragment.requireActivity(),"Enter email and password.",Toast.LENGTH_LONG).show()
             } else {
-                auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
-                    val action = LoginPageFragmentDirections.actionLoginPageFragmentToVoteFragment()
-                    findNavController().navigate(action)
-                }.addOnFailureListener {
-                    Toast.makeText(this@LoginPageFragment.requireActivity(),it.localizedMessage,Toast.LENGTH_LONG).show()
-                }
+                val usersRef = db.collection("users")
+                usersRef
+                    .whereEqualTo("tcNo", tcNo)
+                    .whereEqualTo("password", password)
+                    .get()
+                    .addOnSuccessListener { querySnapshot ->
+                        if (!querySnapshot.isEmpty) {
+                            val action = LoginPageFragmentDirections.actionLoginPageFragmentToVoteFragment()
+                            findNavController().navigate(action)
+                        } else {
+                            Toast.makeText(this@LoginPageFragment.requireActivity(),"Failed to login.",Toast.LENGTH_LONG).show()
+                        }
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this@LoginPageFragment.requireActivity(),it.localizedMessage,Toast.LENGTH_LONG).show()
+                    }
             }
         }
 
