@@ -79,5 +79,11 @@
     <fragment
         android:id="@+id/voteFragment"
         android:name="com.tolganacar.androidvotingsystem.view.votepage.VoteFragment"
-        android:label="VoteFragment" />
+        android:label="VoteFragment" >
+        <action
+            android:id="@+id/action_voteFragment_to_mainPageFragment2"
+            app:destination="@id/mainPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+    </fragment>
 </navigation>
