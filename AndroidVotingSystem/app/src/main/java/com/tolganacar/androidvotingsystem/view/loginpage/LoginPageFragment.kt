@@ -50,22 +50,27 @@ class LoginPageFragment : Fragment() {
             if(tcNo.equals("") || password.equals("")) {
                 Toast.makeText(this@LoginPageFragment.requireActivity(),"Enter email and password.",Toast.LENGTH_LONG).show()
             } else {
-                val usersRef = db.collection("users")
-                usersRef
-                    .whereEqualTo("tcNo", tcNo)
-                    .whereEqualTo("password", password)
-                    .get()
-                    .addOnSuccessListener { querySnapshot ->
-                        if (!querySnapshot.isEmpty) {
-                            val action = LoginPageFragmentDirections.actionLoginPageFragmentToVoteFragment()
-                            findNavController().navigate(action)
-                        } else {
-                            Toast.makeText(this@LoginPageFragment.requireActivity(),"Failed to login.",Toast.LENGTH_LONG).show()
+                if(tcNo.equals("00000000000") && password.equals("admin123")) {
+                    val action = LoginPageFragmentDirections.actionLoginPageFragmentToResultPageFragment()
+                    findNavController().navigate(action)
+                } else {
+                    val usersRef = db.collection("users")
+                    usersRef
+                        .whereEqualTo("tcNo", tcNo)
+                        .whereEqualTo("password", password)
+                        .get()
+                        .addOnSuccessListener { querySnapshot ->
+                            if (!querySnapshot.isEmpty) {
+                                val action = LoginPageFragmentDirections.actionLoginPageFragmentToVoteFragment()
+                                findNavController().navigate(action)
+                            } else {
+                                Toast.makeText(this@LoginPageFragment.requireActivity(),"Failed to login.",Toast.LENGTH_LONG).show()
+                            }
                         }
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this@LoginPageFragment.requireActivity(),it.localizedMessage,Toast.LENGTH_LONG).show()
-                    }
+                        .addOnFailureListener {
+                            Toast.makeText(this@LoginPageFragment.requireActivity(),it.localizedMessage,Toast.LENGTH_LONG).show()
+                        }
+                }
             }
         }
 

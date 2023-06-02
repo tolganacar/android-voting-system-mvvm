@@ -38,6 +38,11 @@
             app:destination="@id/fingerprintauthFragment"
             app:enterAnim="@anim/anim_slide_in_left"
             app:exitAnim="@anim/anim_slide_out_left"/>
+        <action
+            android:id="@+id/action_loginPageFragment_to_resultPageFragment"
+            app:destination="@id/resultPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/registerPageFragment"
@@ -86,4 +91,8 @@
             app:enterAnim="@anim/anim_slide_in_left"
             app:exitAnim="@anim/anim_slide_out_left"/>
     </fragment>
+    <fragment
+        android:id="@+id/resultPageFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.resultpage.ResultPageFragment"
+        android:label="ResultPageFragment" />
 </navigation>
