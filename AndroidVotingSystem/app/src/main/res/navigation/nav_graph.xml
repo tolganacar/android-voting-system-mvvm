@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.mainpage.MainPageFragment"
+        android:label="MainPageFragment" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_loginPageFragment"
+            app:destination="@id/loginPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+        <action
+            android:id="@+id/action_mainPageFragment_to_registerPageFragment"
+            app:destination="@id/registerPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+        <action
+            android:id="@+id/action_mainPageFragment_to_voteFragment"
+            app:destination="@id/fingerprintauthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPageFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.loginpage.LoginPageFragment"
+        android:label="LoginPageFragment"
+        >
+        <action
+            android:id="@+id/action_loginPageFragment_to_registerPageFragment"
+            app:destination="@id/registerPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+        <action
+            android:id="@+id/action_loginPageFragment_to_voteFragment"
+            app:destination="@id/fingerprintauthFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+        <action
+            android:id="@+id/action_loginPageFragment_to_resultPageFragment"
+            app:destination="@id/resultPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerPageFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.registerpage.RegisterPageFragment"
+        android:label="RegisterPageFragment" >
+        <action
+            android:id="@+id/action_registerPageFragment_to_loginPageFragment"
+            app:destination="@id/loginPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fingerprintauthFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.fingerprintauthpage.FingerprintAuthFragment"
+        android:label="fragment_vote"
+        tools:layout="@layout/fragment_fingerprint_auth" >
+        <action
+            android:id="@+id/action_voteFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+        <action
+            android:id="@+id/action_voteFragment_to_faceIdFragment"
+            app:destination="@id/faceIdFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/faceIdFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.faceidpage.FaceIdFragment"
+        android:label="fragment_face_id"
+        tools:layout="@layout/fragment_face_id" >
+        <action
+            android:id="@+id/action_faceIdFragment_to_voteFragment"
+            app:destination="@id/voteFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/voteFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.votepage.VoteFragment"
+        android:label="VoteFragment" >
+        <action
+            android:id="@+id/action_voteFragment_to_mainPageFragment2"
+            app:destination="@id/mainPageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/resultPageFragment"
+        android:name="com.tolganacar.androidvotingsystem.view.resultpage.ResultPageFragment"
+        android:label="ResultPageFragment" />
+</navigation>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.loginpage.LoginPageFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputTcNoLogin"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/tc_no"
+            app:boxStrokeColor="@color/purple_700"
+            app:counterEnabled="true"
+            app:counterMaxLength="11"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_id">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTcNoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="11" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPasswordLogin"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/password"
+            app:boxStrokeColor="@color/purple_700"
+            app:endIconMode="password_toggle"
+            app:hintTextColor="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputTcNoLogin"
+            app:startIconDrawable="@drawable/ic_baseline_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLoginLoginPage"
+            android:layout_width="200dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#CC25B533"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            app:cornerRadius="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputPasswordLogin" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRegisterLoginPage"
+            android:layout_width="200dp"
+            android:layout_height="63dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/register"
+            android:textColor="@color/purple_700"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/purple_700"
+            app:strokeWidth="2dp" />
+
+        <TextView
+            android:id="@+id/textViewHaveAnAccountLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/are_you_a_new_user"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRegisterLoginPage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewLogin"
+            android:layout_width="92dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="92dp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputTcNoLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/login" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

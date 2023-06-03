@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Voting System</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">REGISTER</string>
+    <string name="login">LOGIN</string>
+    <string name="tc_no">TC No</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="do_you_already_have_an_account">Do you already have an account?</string>
+    <string name="are_you_a_new_user">Are you a new user?</string>
+    <string name="click_here_to_vote_now">Click here to vote now</string>
+    <string name="vote_for_democracy">Vote for Democracy</string>
+    <string name="email">Email</string>
+    <string name="verify">Verify</string>
+    <string name="click_verify_button_for_fingerprint_verification">Click here for fingerprint verification</string>
+    <string name="detect_face">Detect Face</string>
+    <string name="recep_tayyip_erdogan">Recep Tayyip Erdoğan</string>
+    <string name="choose">Choose</string>
+    <string name="kemal_kilidaroglu">Kemal Kılıçdaroğlu</string>
+    <string name="memleket_partisi">Memleket Partisi</string>
+    <string name="muharrem_ince">Muharrem İnce</string>
+    <string name="ata_ittifaki">ATA İttifakı</string>
+    <string name="cumhur_ittifaki">Cumhur İttifakı</string>
+    <string name="millet_ittifaki">Millet İttifakı</string>
+    <string name="_0_oy">0 oy</string>
+</resources>
