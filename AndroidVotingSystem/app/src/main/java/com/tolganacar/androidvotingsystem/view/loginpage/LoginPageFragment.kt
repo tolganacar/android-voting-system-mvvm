@@ -1,5 +1,7 @@
 package com.tolganacar.androidvotingsystem.view.loginpage
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,17 +13,17 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.tolganacar.androidvotingsystem.R
-import com.tolganacar.androidvotingsystem.databinding.FragmentFaceIdBinding
 import com.tolganacar.androidvotingsystem.databinding.FragmentLoginPageBinding
 import kotlinx.android.synthetic.main.fragment_login_page.*
-import kotlinx.android.synthetic.main.fragment_register_page.*
 
 class LoginPageFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var viewBinding: FragmentLoginPageBinding
     private val db = Firebase.firestore
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,17 +36,21 @@ class LoginPageFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         auth = Firebase.auth
+        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        editor = sharedPreferences.edit()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
         loginRegisterButtonOnClickListener()
     }
 
     private fun loginRegisterButtonOnClickListener() {
         buttonLoginLoginPage.setOnClickListener {
             val tcNo = viewBinding.editTextTcNoLogin.text.toString()
+            editor.putString("tcNo", tcNo).apply()
             val password = viewBinding.editTextPasswordLogin.text.toString()
 
             if(tcNo.equals("") || password.equals("")) {

@@ -11,8 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.tolganacar.androidvotingsystem.R
-import com.tolganacar.androidvotingsystem.databinding.FragmentFaceIdBinding
 import com.tolganacar.androidvotingsystem.databinding.FragmentRegisterPageBinding
 import kotlinx.android.synthetic.main.fragment_register_page.*
 
@@ -76,6 +74,12 @@ class RegisterPageFragment : Fragment() {
                         ).show()
                     }
             }
+        }
+
+        buttonLoginRegisterPage.setOnClickListener {
+            val action =
+                RegisterPageFragmentDirections.actionRegisterPageFragmentToLoginPageFragment()
+            findNavController().navigate(action)
         }
     }
 }

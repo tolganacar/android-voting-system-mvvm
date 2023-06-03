@@ -1,11 +1,12 @@
 package com.tolganacar.androidvotingsystem.view.votepage
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
@@ -13,24 +14,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.tolganacar.androidvotingsystem.R
-import com.tolganacar.androidvotingsystem.databinding.FragmentFingerprintAuthBinding
 import com.tolganacar.androidvotingsystem.databinding.FragmentVoteBinding
-import com.tolganacar.androidvotingsystem.view.registerpage.RegisterPageFragmentDirections
-import kotlinx.android.synthetic.main.fragment_login_page.editTextTcNoLogin
-import kotlinx.android.synthetic.main.fragment_register_page.editTextFullName
-import kotlinx.android.synthetic.main.fragment_vote.buttonVoteErdogan
-import kotlinx.android.synthetic.main.fragment_vote.buttonVoteInce
-import kotlinx.android.synthetic.main.fragment_vote.buttonVoteKilicdaroglu
-import kotlinx.android.synthetic.main.fragment_vote.buttonVoteOgan
-import java.net.Inet4Address
-import java.net.NetworkInterface
 
 class VoteFragment : Fragment() {
 
     private val db = Firebase.firestore
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentVoteBinding
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,31 +33,126 @@ class VoteFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
+        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonVoteErdogan.setOnClickListener {
-            saveVote("Recep Tayyip Erdogan")
+            saveVoteAlert("Recep Tayyip Erdogan")
         }
         binding.buttonVoteKilicdaroglu.setOnClickListener {
-            saveVote("Kemal Kilicdaroglu")
+            saveVoteAlert("Kemal Kilicdaroglu")
         }
         binding.buttonVoteInce.setOnClickListener {
-            saveVote("Muharrem Ince")
+            saveVoteAlert("Muharrem Ince")
         }
         binding.buttonVoteOgan.setOnClickListener {
-            saveVote("Sinan Ogan")
+            saveVoteAlert("Sinan Ogan")
         }
 
     }
 
+    private fun checkAndSaveVote(candidate: String) {
+        val tcNo = sharedPreferences.getString("tcNo", null)
+
+        db.collection("votes")
+            .document("Recep Tayyip Erdogan")
+            .collection("voters")
+            .whereEqualTo("tcNo", tcNo)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.isEmpty) {
+                    db.collection("votes")
+                        .document("Kemal Kilicdaroglu")
+                        .collection("voters")
+                        .whereEqualTo("tcNo", tcNo)
+                        .get()
+                        .addOnSuccessListener { querySnapshot1 ->
+                            if (querySnapshot1.isEmpty) {
+                                db.collection("votes")
+                                    .document("Muharrem Ince")
+                                    .collection("voters")
+                                    .whereEqualTo("tcNo", tcNo)
+                                    .get()
+                                    .addOnSuccessListener { querySnapshot2 ->
+                                        if (querySnapshot2.isEmpty) {
+                                            db.collection("votes")
+                                                .document("Sinan Ogan")
+                                                .collection("voters")
+                                                .whereEqualTo("tcNo", tcNo)
+                                                .get()
+                                                .addOnSuccessListener { querySnapshot3 ->
+                                                    if (querySnapshot3.isEmpty) {
+                                                        saveToDatabase(candidate)
+                                                    } else {
+                                                        Toast.makeText(
+                                                            requireContext(),
+                                                            "You have already voted.",
+                                                            Toast.LENGTH_LONG
+                                                        ).show()
+                                                    }
+                                                }
+                                                .addOnFailureListener { exception ->
+                                                    Toast.makeText(
+                                                        requireContext(),
+                                                        exception.localizedMessage,
+                                                        Toast.LENGTH_LONG
+                                                    ).show()
+                                                }
+                                        } else {
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "You have already voted.",
+                                                Toast.LENGTH_LONG
+                                            ).show()
+                                        }
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        Toast.makeText(
+                                            requireContext(),
+                                            exception.localizedMessage,
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+                            } else {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "You have already voted.",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            Toast.makeText(
+                                requireContext(),
+                                exception.localizedMessage,
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "You have already voted.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(
+                    requireContext(),
+                    exception.localizedMessage,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+    }
+
     private fun saveToDatabase(candidate: String) {
-        val chosen = "chosen"
+        val tcNo = sharedPreferences.getString("tcNo", null)
 
         val voteData = hashMapOf(
-            "vote" to chosen
+            "tcNo" to tcNo
         )
 
         db.collection("votes")
@@ -74,25 +160,32 @@ class VoteFragment : Fragment() {
             .collection("voters")
             .add(voteData)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(),"Vote recorded successfully!",Toast.LENGTH_LONG).show()
-                val action =
-                    VoteFragmentDirections.actionVoteFragmentToMainPageFragment2()
+                Toast.makeText(
+                    requireContext(),
+                    "Vote recorded successfully!",
+                    Toast.LENGTH_LONG
+                ).show()
+                val action = VoteFragmentDirections.actionVoteFragmentToMainPageFragment2()
                 findNavController().navigate(action)
             }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(),it.localizedMessage,Toast.LENGTH_LONG).show()
+            .addOnFailureListener { exception ->
+                Toast.makeText(
+                    requireContext(),
+                    exception.localizedMessage,
+                    Toast.LENGTH_LONG
+                ).show()
             }
     }
 
-    private fun saveVote(candidate: String){
+    private fun saveVoteAlert(candidate: String) {
         val alert = AlertDialog.Builder(requireContext())
         alert.setTitle("Confirm your vote")
         alert.setMessage("Do you want to vote for $candidate?")
-        alert.setPositiveButton("Yes") {dialog, which ->
-            saveToDatabase(candidate)
+        alert.setPositiveButton("Yes") { dialog, which ->
+            checkAndSaveVote(candidate)
         }
-        alert.setNegativeButton("No"){dialog, which ->
-            Toast.makeText(requireContext(),"You did not vote.",Toast.LENGTH_SHORT).show()
+        alert.setNegativeButton("No") { dialog, which ->
+            Toast.makeText(requireContext(), "You did not vote.", Toast.LENGTH_SHORT).show()
         }
         alert.show()
     }
